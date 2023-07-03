@@ -21,6 +21,10 @@ export default function HomeScreen ({ navigation }) {
                 <Text style={styles.contentTextStyle}>Notify</Text>
                 <Button title="Notify" onPress={() => navigation.navigate('Notify')}/>
             </View>
+            <View style={styles.content}>
+                <Text style={styles.contentTextStyle}>Contatos</Text>
+                <Button title="Contatos" onPress={() => navigation.navigate('ContactsInfo')}/>
+            </View>
         </View>
     )
 }

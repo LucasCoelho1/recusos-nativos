@@ -2,28 +2,28 @@ import React, { useEffect, useState } from 'react';
 import { View, StyleSheet, Text, Button } from 'react-native';
 import * as Battery from 'expo-battery';
 
-export const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  progressBarContainer: {
-    width: '80%',
-    height: 20,
-    backgroundColor: '#ccc',
-    borderRadius: 10,
-    overflow: 'hidden',
-  },
-  progressBar: {
-    height: '100%',
-  },
-  contentTextStyle: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginTop: 20,
-  },
-});
+  export const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    progressBarContainer: {
+      width: '80%',
+      height: 20,
+      backgroundColor: '#ccc',
+      borderRadius: 10,
+      overflow: 'hidden',
+    },
+    progressBar: {
+      height: '100%',
+    },
+    contentTextStyle: {
+      fontSize: 20,
+      fontWeight: 'bold',
+      marginTop: 20,
+    },
+  });
 
 export default function BatteryInfo() {
   const [nivelBateria, setNivelBateria] = useState(0);

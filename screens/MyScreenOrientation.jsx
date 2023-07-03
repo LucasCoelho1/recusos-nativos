@@ -1,58 +1,93 @@
-import{ StyleSheet, Text, View, Button} from 'react-native';
-import Header from '../components/Header';
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, Text, View, Button } from 'react-native';
 import * as ScreenOrientation from 'expo-screen-orientation';
+import Header from '../components/Header';
 
-async function padrao() {
+export default function Component() {
+  const [backgroundColor, setBackgroundColor] = useState('white');
+  useEffect(() => {
+    setOrientationColor();
+    ScreenOrientation.addOrientationChangeListener(setOrientationColor);
+    return () => {
+      ScreenOrientation.removeOrientationChangeListener(setOrientationColor);
+    };
+  }, []);
+
+  async function setOrientationColor() {
+    const orientation = await ScreenOrientation.getOrientationAsync();
+
+    switch (orientation) {
+      case ScreenOrientation.Orientation.PORTRAIT_DOWN:
+        setBackgroundColor('white');
+        break;
+      case ScreenOrientation.Orientation.PORTRAIT_UP:
+        setBackgroundColor('red');
+        break;
+      case ScreenOrientation.Orientation.LANDSCAPE_LEFT:
+        setBackgroundColor('green');
+        break;
+      case ScreenOrientation.Orientation.LANDSCAPE_RIGHT:
+        setBackgroundColor('white');
+        break;
+      default:
+        setBackgroundColor('white');
+        break;
+    }
+  }
+
+  async function padrao() {
     await ScreenOrientation.lockAsync(
-        ScreenOrientation.OrientationLock.DEFAULT
-        );
-}
-async function padrao1() {
+      ScreenOrientation.OrientationLock.DEFAULT
+    );
+    setBackgroundColor('white');
+  }
+
+  async function padrao1() {
     await ScreenOrientation.lockAsync(
-        ScreenOrientation.OrientationLock.PORTRAIT_DOWN
-        );
-}
-async function padrao2() {
+      ScreenOrientation.OrientationLock.PORTRAIT_DOWN
+    );
+    setBackgroundColor('white');
+  }
+
+  async function padrao2() {
     await ScreenOrientation.lockAsync(
-        ScreenOrientation.OrientationLock.PORTRAIT_UP
-        );
-}
-async function padrao3() {
+      ScreenOrientation.OrientationLock.PORTRAIT_UP
+    );
+    setBackgroundColor('red');
+  }
+
+  async function padrao3() {
     await ScreenOrientation.lockAsync(
-        ScreenOrientation.OrientationLock.LANDSCAPE_LEFT
-        );
-}
-async function padrao4() {
+      ScreenOrientation.OrientationLock.LANDSCAPE_LEFT
+    );
+    setBackgroundColor('green');
+  }
+
+  async function padrao4() {
     await ScreenOrientation.lockAsync(
-        ScreenOrientation.OrientationLock.LANDSCAPE_RIGHT
-        );
-}
-async function padrao5() {
-    await ScreenOrientation.lockAsync(
-        ScreenOrientation.OrientationLock.ALL
-        );
-}
-export default function MyScreenOrientation({ navigation }) {
-return (
-<View>
-    <Header title="Orientação da tela"/>
-    <Text>
-        Sas
-    </Text>
-    <Button title="Padrao" onPress={padrao}></Button>
-    <Button title="Girar para baixo" onPress={padrao1}></Button>
-    <Button title="Girar para Cima" onPress={padrao2}></Button>
-    <Button title="Girar para esquerda" onPress={padrao3}></Button>
-    <Button title="Girar para direita" onPress={padrao4}></Button>
-    <Button title="Padrao" onPress={padrao5}></Button>
-</View>
-);
+      ScreenOrientation.OrientationLock.LANDSCAPE_RIGHT
+    );
+    setBackgroundColor('white');
+  }
+
+  return (
+    <View style={[styles.container, { backgroundColor }]}>
+      <Header style={styles.header} />
+      <Text style={styles.text}>sas</Text>
+      <Button title="Padrão" onPress={padrao} />
+      <Button title="Girar para baixo" onPress={padrao1} />
+      <Button title="Girar para cima" onPress={padrao2} />
+      <Button title="Girar para esquerda" onPress={padrao3} />
+      <Button title="Girar para direita" onPress={padrao4} />
+    </View>
+  );
 }
 
-export const styles = StyleSheet.create({
-container: {
+const styles = StyleSheet.create({
+  container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-},
+  },
+  text: {
+    color: 'white',
+  },
 });

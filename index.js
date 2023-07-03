@@ -5,6 +5,7 @@ import DeviceInfo from './screens/DeviceInfo';
 import HomeScreen from './screens/Homescreen';
 import MyScreenOrientation from './screens/MyScreenOrientation';
 import Notify from './screens/Notify';
+import ContactsInfo from './screens/ContactsInfo';
 
 const Stack = createStackNavigator();
 
@@ -43,6 +44,13 @@ function RootNavigation() {
         <Stack.Screen
           name="Notify"
           component={Notify}
+          options={{
+            headerShown: true,
+          }}
+        />
+        <Stack.Screen
+          name="ContactsInfo"
+          component={ContactsInfo}
           options={{
             headerShown: true,
           }}
