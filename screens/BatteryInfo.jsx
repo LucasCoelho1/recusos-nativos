@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, StyleSheet, Text, Button } from 'react-native';
 import * as Battery from 'expo-battery';
+import Header from "../components/Header";
 
   export const styles = StyleSheet.create({
     container: {
@@ -52,13 +53,15 @@ export default function BatteryInfo() {
     getBatteryInfo();
   }, []);
 
+
   return (
     <View style={styles.container}>
+      <Header title="Nivel de bateria"/>
       <View style={styles.progressBarContainer}>
         <View style={[styles.progressBar, { width: `${nivelBateria}%`, backgroundColor: progressBarColor }]} />
       </View>
       <Text style={styles.contentTextStyle}>O nível da bateria é: {nivelBateria}%</Text>
-      <Button onPress={getBatteryInfo} title="Atualizar" />
+      <Button onPress={getBatteryInfo} title="Atualizar"/>
     </View>
   );
 }

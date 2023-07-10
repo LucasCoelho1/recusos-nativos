@@ -72,8 +72,7 @@ export default function Component() {
 
   return (
     <View style={[styles.container, { backgroundColor }]}>
-      <Header style={styles.header} />
-      <Text style={styles.text}>sas</Text>
+      <Header title="Girar tela"/>
       <Button title="Padrão" onPress={padrao} />
       <Button title="Girar para baixo" onPress={padrao1} />
       <Button title="Girar para cima" onPress={padrao2} />
@@ -86,8 +85,5 @@ export default function Component() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-  text: {
-    color: 'white',
   },
 });

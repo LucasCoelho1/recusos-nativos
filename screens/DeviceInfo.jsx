@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
         gap: 10
     },
     content: {
-        flex: 1,
+        flex: 1,  
         gap: 20,
         padding: 20,
         alignSelf: 'center',
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
         color: 'white',
         fontWeight: 'bold',
         fontSize: 18,
-        textAlign: 'center'
+        textAlign: 'center' 
     },
 });
 
@@ -32,7 +32,7 @@ export default function DeviceInfo() {
             title="Informações do Aparelho"
         />
 
-      <View>
+      <View style={{ marginTop: 150,}}>
         <Text>
           O nome do seu aparelho é:
           {Device.modelName}
