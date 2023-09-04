@@ -73,11 +73,13 @@ export default function Component() {
   return (
     <View style={[styles.container, { backgroundColor }]}>
       <Header title="Girar tela"/>
+      <View style={{ marginTop: 70}}>
       <Button title="Padrão" onPress={padrao} />
       <Button title="Girar para baixo" onPress={padrao1} />
       <Button title="Girar para cima" onPress={padrao2} />
       <Button title="Girar para esquerda" onPress={padrao3} />
       <Button title="Girar para direita" onPress={padrao4} />
+      </View>
     </View>
   );
 }

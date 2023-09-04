@@ -7,6 +7,9 @@ import MyScreenOrientation from './screens/MyScreenOrientation';
 import Notify from './screens/Notify';
 import ContactsInfo from './screens/ContactsInfo';
 import Notifi from './screens/Notifi';
+import Sensors from './screens/Sensors';
+import ScreenCap from './screens/ScreenCap';
+import LocalAuthentificator from './screens/LocalAuthentificator';
 
 const Stack = createStackNavigator();
 
@@ -59,6 +62,27 @@ function RootNavigation() {
         <Stack.Screen
           name="Notifi"
           component={Notifi}
+          options={{
+            headerShown: true,
+          }}
+        />
+         <Stack.Screen
+          name="Sensors"
+          component={Sensors}
+          options={{
+            headerShown: true,
+          }}
+        />
+        <Stack.Screen
+          name="ScreenCap"
+          component={ScreenCap} 
+          options={{
+            headerShown: true,
+          }}
+        />
+        <Stack.Screen
+          name="LocalAuthentificator"
+          component={LocalAuthentificator} 
           options={{
             headerShown: true,
           }}
